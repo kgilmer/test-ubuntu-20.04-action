@@ -7,7 +7,7 @@ APT_REPO_LINE=$2
 TARGET_PACKAGE=$3
 
 apt update
-apt install -y wget sudo
+apt install -y wget sudo gnupg
 
 # Install repo key
 wget -qO - "$APT_KEY_URL" | sudo apt-key add -

@@ -9,11 +9,11 @@ TARGET_PACKAGE=$3
 apt update
 
 # Install repo key
-wget -qO - "$APT_KEY_URL" | sudo apt-key add -
+wget -qO - "$APT_KEY_URL" | apt-key add -
 
 # Update apt configuration with new repository
-echo "$APT_REPO_LINE" | sudo tee /etc/apt/sources.list.d/regolith.list
+echo "$APT_REPO_LINE" | tee /etc/apt/sources.list.d/regolith.list
 
 # Install target package
-sudo apt update
-sudo apt install -y "$TARGET_PACKAGE"
+apt update
+DEBIAN_FRONTEND=noninteractive apt install -y "$TARGET_PACKAGE"

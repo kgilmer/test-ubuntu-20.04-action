@@ -6,6 +6,9 @@ APT_KEY_URL=$1
 APT_REPO_LINE=$2
 TARGET_PACKAGE=$3
 
+export DEBIAN_FRONTEND=noninteractive 
+export TZ=Etc/UTC 
+
 apt update
 apt install -y wget sudo gnupg
 
